@@ -1,6 +1,6 @@
 {
   "name": "vz.next-tick",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "nextTick implementation for the browser",
   "main": "main.js",
   "repository": {
