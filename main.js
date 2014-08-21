@@ -2,35 +2,51 @@ var callbacks = [],
 		args = [],
 		thats = [],
 		ids = [],
-		ticker = new Image(),
-		state = true;
+    waiting = false,
+    
+		ticker,
+		state;
 
-ticker.onerror = function(){
+function tickHandler(){
 	var cb,
 			c = callbacks,
 			t = thats,
 			a = args;
 	
+  waiting = false;
+  
 	callbacks = [];
 	thats = [];
 	args = [];
 	ids = [];
 	
 	while(cb = c.shift()) cb.apply(t.shift(),a.shift());
-};
+}
+
+if(!global.setImmediate){
+  ticker = new Image();
+  ticker.onerror = tickHandler;
+  state = true;
+}
 
 module.exports = function(callback,arg,that){
 	var id;
 	
 	callbacks.push(callback || function(){});
 	args.push(arg || []);
-	thats.push(that || window);
+	thats.push(that || global);
 	ids.push(id = {});
 	
-	if(state) ticker.src = 'data:,0';
-	else ticker.src = 'data:,1';
-	
-	state = !state;
+  if(waiting) return id;
+  waiting = true;
+  
+  if(ticker){
+    if(state) ticker.src = 'data:,0';
+    else ticker.src = 'data:,1';
+    
+    state = !state;
+  }else setImmediate(tickHandler);
+  
 	return id;
 };
 
