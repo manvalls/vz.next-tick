@@ -1,0 +1,15 @@
+{
+  "name": "vz.next-tick",
+  "version": "1.0.0",
+  "description": "nextTick implementation for the browser",
+  "main": "main.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/manvalls/vz.next-tick.git"
+  },
+  "bugs": {
+    "url": "https://github.com/manvalls/vz.next-tick/issues"
+  },
+  "author": "Manuel Valls Fernández <manolo@chatiku.com>",
+  "license": "LGPL-3.0"
+}
