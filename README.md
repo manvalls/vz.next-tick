@@ -12,10 +12,11 @@ var nextTick = require('vz.next-tick'),
     id;
 
 // (function,arguments,thisArg)
-nextTick(console.log,['Hello','world'],console); // Will be executed asap, but asynchronously
+nextTick(console.log,['Hello','world'],console);
+// Will be executed asap, but asynchronously
 
 id = nextTick(console.log,['Bye','world'],console);
-nextTick.clear(id); // Wont be executed
+nextTick.clear(id); // Won't be executed
 
 ```
 
