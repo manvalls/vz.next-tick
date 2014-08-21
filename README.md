@@ -2,7 +2,7 @@
 
 [![NPM](https://nodei.co/npm/vz.next-tick.png?downloads=true)](https://nodei.co/npm/vz.next-tick/)
 
-## Example ussage:
+## Sample usage:
 
 ```javascript
 
